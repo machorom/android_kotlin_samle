@@ -3,9 +3,12 @@ package com.machorom.retrofitdemo
 import android.content.Context
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.machorom.retrofitdemo.api.AuthApi
+import com.machorom.retrofitdemo.api.httpextra.HttpExtra
 import com.machorom.retrofitdemo.data.datasource.remote.AuthRemoteDataSource
 import com.machorom.retrofitdemo.data.repository.AuthRepository
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -29,6 +32,7 @@ val repositoryModule = module {
 private fun provideAuthApi(retrofit: Retrofit) = retrofit.create(AuthApi::class.java)
 
 private fun provideOkHttpClient(context: Context) = OkHttpClient().newBuilder()
+    .addInterceptor { HttpExtra.defineHeader(it, context) }
     .connectTimeout(5, TimeUnit.MINUTES)
     .writeTimeout(5, TimeUnit.MINUTES)
     .readTimeout(5, TimeUnit.MINUTES)
