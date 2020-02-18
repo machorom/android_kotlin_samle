@@ -52,6 +52,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "563596822505-9kn19e4lbl6lv060j54976h8qhjt8ko5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.machorom.hybriddemo",
+            "certificate_hash": "8e21254ecca6f2395b2c514a52f2dcc7e36412c5"
+          }
+        },
+        {
           "client_id": "563596822505-uje0bf55m45j946rjj89q3fn0vvad5aj.apps.googleusercontent.com",
           "client_type": 3
         }
